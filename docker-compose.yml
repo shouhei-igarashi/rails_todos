@@ -12,11 +12,11 @@ services:
     depends_on:
       - db
     environment:
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
       TZ: 'Asia/Tokyo'
       MYSQL_ROOT_HOST: "%"
     tty: true
