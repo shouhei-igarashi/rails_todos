@@ -1,12 +1,13 @@
 class TodoController < ApplicationController
     def create
         todo = Todo.new({title: params[:title], detail: params[:detail]})
+        status = 'Error'
         
         if todo.save
-            render json: { status: 'Success', title: params[:title], detail:params[:detail]}
-        else
-            render json: { status: 'Error', title: params[:title], detail:params[:detail] }    
+            status = 'Success'
         end
+
+        render json: { status: status, title: params[:title], detail:params[:detail]}
     end
 
     def show
