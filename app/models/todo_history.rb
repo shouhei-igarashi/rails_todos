@@ -1,0 +1,2 @@
+class TodoHistory < ApplicationRecord
+end

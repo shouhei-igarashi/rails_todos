@@ -1,4 +1,8 @@
-class TodoController < ApplicationController
+class TodosController < ApplicationController
+    include Authenticatable
+
+    before_action :authenticate_with_token
+    
     def create
         todo = Todo.new({title: params[:title], detail: params[:detail]})
         status = 'Error'

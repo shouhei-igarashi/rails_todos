@@ -30,3 +30,5 @@
 
 .vscode
 .env
+
+/app/auth/*
