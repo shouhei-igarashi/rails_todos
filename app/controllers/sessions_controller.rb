@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController 
     def create
-        user = AuthenticationService.authenticate_user_with_password(params[:email], params[:password])
-
+        authenticatePasswordService = AuthenticatePasswordService.new(params[:email], params[:password])
+        user = authenticatePasswordService.execute
+        
         payload = {
             iss: "myapp",
             sub: user.id,

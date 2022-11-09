@@ -4,7 +4,8 @@ module Authenticatable
     end
   
     def current_user
-      AuthenticationService.authenticate_user_with_token(cookies[:token])
+      authenticate_jwt_service = AuthenticateJwtService.new(cookies[:token])
+      user = authenticate_jwt_service.execute
     rescue AuthenticationError
       nil
     end
